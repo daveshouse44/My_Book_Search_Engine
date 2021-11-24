@@ -76,13 +76,14 @@ const SearchBooks = () => {
     }
 
     try {
-      await saveBook({
+      const { data } = await saveBook(
+        {
         variables: {
-          input: bookToSave,
+          bookData: bookToSave,
         },
       });
 
-      if (error) {
+      if (!data) {
         throw new Error("something went wrong!");
       }
 
@@ -160,7 +161,7 @@ const SearchBooks = () => {
                     <div className="my-3 p-3 bg-danger text-white">
                       {error.message}
                     </div>
-            )}
+                  )}
                 </Card.Body>
               </Card>
             );
