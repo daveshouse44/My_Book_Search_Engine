@@ -1,14 +1,14 @@
 // route to get logged in user's info (needs the token)
-export const saveBook = (bookData, token) => {
-  return fetch('/api/users', {
-    method: 'PUT',
-    headers: {
-      'Content-Type': 'application/json',
-      authorization: `Bearer ${token}`,
-    },
-    body: JSON.stringify(bookData),
-  });
-};
+// export const saveBook = (bookData, token) => {
+//   return fetch('/api/users', {
+//     method: 'PUT',
+//     headers: {
+//       'Content-Type': 'application/json',
+//       authorization: `Bearer ${token}`,
+//     },
+//     body: JSON.stringify(bookData),
+//   });
+// };
 
 // make a search to google books api
 // https://www.googleapis.com/books/v1/volumes?q=harry+potter
