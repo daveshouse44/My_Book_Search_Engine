@@ -49,11 +49,11 @@ const SearchBooks = () => {
       const { items } = await response.json();
 
       const bookData = items.map((book) => ({
-        bookId: book.id,
         authors: book.volumeInfo.authors || ["No author to display"],
-        title: book.volumeInfo.title,
         description: book.volumeInfo.description,
+        bookId: book.id,
         image: book.volumeInfo.imageLinks?.thumbnail || "",
+        title: book.volumeInfo.title,
       }));
 
       setSearchedBooks(bookData);
@@ -79,7 +79,7 @@ const SearchBooks = () => {
       const { data } = await saveBook(
         {
         variables: {
-          bookData: {...bookToSave},
+          bookData: { bookData: bookToSave },
         },
       });
 
